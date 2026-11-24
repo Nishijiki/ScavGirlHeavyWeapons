@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.2.0
+
+- Added Scav Girl compatibility for HMG01 (Painless).
+- Painless unlock was tested in-game; the weapon can be equipped by Scav Girl.
+- Marked Painless as experimental due to character positioning and camera clipping issues.
+- No animation or camera fix is included in this version.
+
+## 1.1.0
+
+- Added Scav Girl compatibility for GRL01 and GRL02.
+- Preserved all existing character tags and restrictions for other characters.
+- Verified successful runtime patching of all 12 configured weapon rows with UE4SS 4.0.0 (12/12, 0 failures).
+
 ## 1.0.0
 
 - Initial documented release of ScavGirlHeavyWeapons.
