@@ -1,9 +1,13 @@
--- ScavGirlHeavyWeapons v1.0.0
+-- ScavGirlHeavyWeapons v1.2.0
 -- The Forever Winter | UE4SS 4.0.0
 --
 -- Adds Scav Girl (Pawn.Player.Girl) to the AllowTags list for the
--- selected LMG and HRF weapon rows in WeaponsDetailsData.
+-- selected LMG, HRF, GRL and HMG weapon rows in WeaponsDetailsData.
 -- Existing character tags are preserved. No other character is modified.
+--
+-- HMG01 (Painless) is included as an experimental unlock.
+-- Its weapon compatibility is enabled, but character animation/camera
+-- positioning issues are known and are not fixed by this version.
 
 local PREFIX = "[SGHW] "
 local GIRL_TAG = "Pawn.Player.Girl"
@@ -21,7 +25,14 @@ local WEAPONS = {
     "HRF02",
     "HRF03",
     "HRF04",
-    "HRF05"
+    "HRF05",
+
+    -- GRL weapons
+    "GRL01",
+    "GRL02",
+
+    -- Heavy machine gun (experimental)
+    "HMG01"
 }
 
 local function log(message)
@@ -140,7 +151,7 @@ local function patchWeapon(dataTable, weaponCode)
 end
 
 log("================================")
-log("ScavGirlHeavyWeapons v1.0.0")
+log("ScavGirlHeavyWeapons v1.2.0")
 log("Starting weapon compatibility patch")
 log("Target: " .. GIRL_TAG)
 log("================================")
