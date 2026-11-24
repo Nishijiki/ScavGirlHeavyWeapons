@@ -11,25 +11,38 @@
 
 > **Experimental:** HMG01 (Painless) is unlocked for Scav Girl, but currently causes character positioning and camera clipping issues. This mod does not include an animation or camera fix.
 
-## Supported weapons
+## Weapons unlocked for Scav Girl
 
-The mod patches 13 rows in the game's `WeaponsDetailsData` DataTable.
+The mod adds Scav Girl to the allowed-character list for **13 weapon entries** in the game's `WeaponsDetailsData` DataTable:
 
-| Category | DataTable row | Notes |
-|---|---|---|
-| LMG | `LMG01` | |
-| LMG | `LMG02` | |
-| LMG | `LMG03` | |
-| LMG | `LMG04` | |
-| LMG | `LMG06` | |
-| HRF | `HRF01` | |
-| HRF | `HRF02` | |
-| HRF | `HRF03` | |
-| HRF | `HRF04` | |
-| HRF | `HRF05` | AT-43 MASS |
-| GRL | `GRL01` | |
-| GRL | `GRL02` | |
-| HMG | `HMG01` | Painless — experimental |
+### Light machine guns — LMG (5)
+
+- `LMG01`
+- `LMG02`
+- `LMG03`
+- `LMG04`
+- `LMG06`
+
+### HRF weapons — HRF (5)
+
+- `HRF01`
+- `HRF02`
+- `HRF03`
+- `HRF04`
+- `HRF05` — **AT-43 MASS**
+
+### GRL weapons — GRL (2)
+
+- `GRL01`
+- `GRL02`
+
+### Heavy machine gun — HMG (1)
+
+- `HMG01` — **Painless** *(experimental; known character positioning and camera clipping issue)*
+
+**Total: 13 weapon entries — 5 LMG + 5 HRF + 2 GRL + 1 HMG.**
+
+The codes above are the weapon row identifiers used internally by the game's DataTable. Where a confirmed in-game display name is known, it is shown beside the identifier. The mod does not rename weapons or change their stats.
 
 `LMG05` is intentionally not included.
 
@@ -115,7 +128,7 @@ It then reads the array again to verify the change. If verification fails, it at
 
 ## Testing status
 
-- **v1.1.0:** runtime patching of the 12 configured LMG, HRF and GRL rows was confirmed: 12/12 successful, 0 failures.
+- **v1.1.0:** runtime patching of the 12 configured LMG, HRF and GRL rows was confirmed: 12/12 successful, 0 failures. GRL weapons were also confirmed usable in the loadout.
 - **v1.2.0:** Painless (HMG01) was added and confirmed equippable by Scav Girl. Its positioning and camera issue remains unresolved.
 - A full 13/13 runtime verification log for v1.2.0 has not yet been documented.
 
