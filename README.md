@@ -128,6 +128,5 @@ The project is intentionally standalone and does not use TFWWorkbench.
 
 ## Credits
 
-Created and tested by the repository owner with ChatGPT assistance.
 
 Game assets and trademarks belong to their respective owners. This project is an unofficial community mod and is not affiliated with or endorsed by the developers or publishers of The Forever Winter.
