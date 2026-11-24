@@ -17,24 +17,24 @@ The mod adds Scav Girl to the allowed-character list for **13 weapon entries** i
 
 ### Light machine guns — LMG (5)
 
-- `LMG01` — Light Machine Gun
-- `LMG02` — Light Machine Gun
-- `LMG03` — Light Machine Gun
-- `LMG04` — Light Machine Gun
-- `LMG06` — Light Machine Gun
+- `LMG01` — **MG34**
+- `LMG02` — **SAW (M249)**
+- `LMG03` — **M60**
+- `LMG04` — **RPD**
+- `LMG06` — **LMG-P**
 
 ### Heavy rifles — HRF (5)
 
-- `HRF01` — Heavy Rifle
-- `HRF02` — Heavy Rifle
-- `HRF03` — Heavy Rifle
-- `HRF04` — Heavy Rifle
-- `HRF05` — **AT-43 MASS** (Heavy Rifle)
+- `HRF01` — **SCAR**
+- `HRF02` — **36M AntiTank**
+- `HRF03` — **NTW-20**
+- `HRF04` — **GM6**
+- `HRF05` — **AT-43 MASS**
 
 ### Grenade launchers — GRL (2)
 
-- `GRL01` — Grenade Launcher
-- `GRL02` — Grenade Launcher
+- `GRL01` — **Grenade Launcher**
+- `GRL02` — **XM25**
 
 ### Heavy machine gun — HMG (1)
 
@@ -42,7 +42,7 @@ The mod adds Scav Girl to the allowed-character list for **13 weapon entries** i
 
 **Total: 13 weapon entries — 5 LMG + 5 HRF + 2 GRL + 1 HMG.**
 
-The codes are the weapon row identifiers used internally by the game's DataTable. The descriptions above identify each weapon's category; they are not separate in-game display names. The mod does not rename weapons or change their stats.
+The identifiers (such as `LMG01` and `HRF05`) are the internal DataTable row names. The names beside them are the corresponding in-game weapon names. The mod only changes character compatibility; it does not rename weapons or alter their stats.
 
 `LMG05` is intentionally not included.
 
