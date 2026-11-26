@@ -2,7 +2,7 @@
 
 **Standalone UE4SS Lua mod for The Forever Winter.** Adds Scav Girl to the allowed-character tags for selected LMG, HRF, GRL and HMG weapons.
 
-- **Current version:** 1.2.0
+- **Current version:** 1.3.0
 - **Target character:** Scav Girl — `Pawn.Player.Girl`
 - **Required framework:** UE4SS 4.0.0
 - **Game engine observed during development:** Unreal Engine 5.4
@@ -87,7 +87,7 @@ No additional mods or DLC are required. TFWWorkbench is not required.
 Open the UE4SS log and search for `[SGHW]`. A successful run should finish with a summary similar to:
 
 ```text
-[SGHW] ScavGirlHeavyWeapons v1.2.0
+[SGHW] ScavGirlHeavyWeapons v1.3.0
 [SGHW] Starting weapon compatibility patch
 ...
 [SGHW] PATCH FINISHED
@@ -95,9 +95,9 @@ Open the UE4SS log and search for `[SGHW]`. A successful run should finish with 
 [SGHW] Failed: 0/13
 ```
 
-The summary above is the expected result when all 13 rows are found and patched or already contain the Scav Girl tag. It is an example, not a claim that a 13/13 runtime log has been independently verified.
+The summary above illustrates a successful initial patch. The v1.3.0 monitor then checks all 13 configured rows every 3 seconds and automatically restores missing Scav Girl tags.
 
-Rows that already contain `Pawn.Player.Girl` are reported as `SKIP: Girl tag already exists`. This is expected and prevents duplicate tags.
+Rows that already contain `Pawn.Player.Girl` are left unchanged, preventing duplicate tags. During monitoring, the script logs recovery events rather than repeating status messages on every check.
 
 ## What the mod changes
 
@@ -113,7 +113,7 @@ the script reads `AllowTags.GameplayTags`, preserves the existing tags, and adds
 Pawn.Player.Girl
 ```
 
-It then reads the array again to verify the change. If verification fails, it attempts to restore the original tag list.
+It then reads the array again to verify the change. If verification fails, it attempts to restore the original tag list. In v1.3.0, a background monitor checks the configured rows every 3 seconds, reacquires the DataTable on each cycle, and reapplies only permissions that are missing. Each recovery is verified and reported in the UE4SS log.
 
 ### Scope and limitations
 
@@ -122,7 +122,8 @@ It then reads the array again to verify the change. If verification fails, it at
 - No other playable character is intentionally changed.
 - The patch changes character compatibility tags; it does **not** grant weapon items to the inventory.
 - Separate weapon-skill, progression, animation, IK, or camera systems are not modified.
-- The change is applied in memory when the mod loads. It is reapplied on each game launch and does not permanently edit the game's asset files or save data.
+- Changes are applied in memory and do not permanently edit the game's asset files or save data.
+- v1.3.0 periodically monitors compatibility tags (3-second interval) and automatically reapplies missing Scav Girl permissions.
 - Painless (HMG01) is experimental: it can be equipped by Scav Girl, but causes character positioning and camera clipping problems.
 - This mod has been developed and tested with UE4SS 4.0.0. Other UE4SS versions are not covered by the test results.
 
@@ -130,7 +131,7 @@ It then reads the array again to verify the change. If verification fails, it at
 
 - **v1.1.0:** runtime patching of the 12 configured LMG, HRF and GRL rows was confirmed: 12/12 successful, 0 failures. GRL weapons were also confirmed usable in the loadout.
 - **v1.2.0:** Painless (HMG01) was added and confirmed equippable by Scav Girl. Its positioning and camera issue remains unresolved.
-- A full 13/13 runtime verification log for v1.2.0 has not yet been documented.
+- **v1.3.0:** automatic monitoring and permission recovery were confirmed working in-game during character switching. Painless remains experimental; no animation, IK, positioning, or camera fix is included.
 
 ## Troubleshooting
 
@@ -152,7 +153,7 @@ Search the log for `ERROR:` and provide the complete `[SGHW]` section. Do not ma
 
 ### Painless causes character or camera positioning problems
 
-This is a known issue in v1.2.0. The compatibility tag allows Scav Girl to equip Painless, but the weapon's character positioning/animation setup is not fixed by this mod yet. If this issue is unacceptable, avoid equipping HMG01 until a fix is released.
+This remains a known issue in v1.3.0. The compatibility tag allows Scav Girl to equip Painless, but the weapon's character positioning/animation setup is not fixed by this mod yet. If this issue is unacceptable, avoid equipping HMG01 until a fix is released.
 
 ## Development notes
 
@@ -163,6 +164,7 @@ The implementation uses UE4SS Lua reflection:
 - `TArray:ForEach` to enumerate GameplayTags.
 - `FName` values to build the replacement tag list.
 - Post-write verification and a rollback attempt if verification fails.
+- Periodic permission monitoring and automatic recovery of missing tags.
 
 The project is intentionally standalone and does not use TFWWorkbench.
 
