@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.3.0
+
+- Added automatic monitoring of all 13 configured weapon compatibility entries.
+- Added detection of missing Scav Girl (`Pawn.Player.Girl`) tags in `WeaponsDetailsData`.
+- Added automatic reapplication of missing permissions without rewriting entries that are already correct.
+- Added DataTable reacquisition on each monitoring cycle to handle temporary object unavailability or reloads.
+- Added post-recovery verification and clearer recovery status logging.
+- Preserved existing character tags and retained rollback behavior when a write cannot be verified.
+- Confirmed in-game that the automatic monitoring/recovery update works during character switching.
+- Painless (HMG01) remains experimental; character positioning and camera clipping issues are not fixed.
+
 ## 1.2.0
 
 - Added Scav Girl compatibility for HMG01 (Painless).
